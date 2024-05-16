@@ -1,33 +1,32 @@
-# NeversitupTest
-📦 NeversitupTest
- |- 📁 Models 
- | | L 📜 Department.swift 
- | | L 📜 Product.swift
- |- 📁 Service
- | | L 📜 NeversitupTestAPI.swift
- | | L 📜 NeversitupTestService.swift
- |- 📁 ViewModels
- | | L 📜 DetailViewModel.swift
- | | L 📜 HomeViewModel.swift
- |- 📁 Views
- | | |- 📁 Common
- | | | | L 📜 ExtensionUI.swift
- | | |- 📁 Detail
- | | | | L 📜 Detail.storyboard
- | | | | L 📜 DetailViewController.swift
- | | |- 📁 Home
- | | | | - 📁 Base.lproj
- | | | | | L 📜 Home.storyboard
- | | | | L 📜 HomeViewController.swift
- | | | |- 📁 Views
- | | | | |- 📁 HomeDepartmentCollectionViewCell
- | | | | | | L 📜 HomeDepartmentCollectionViewCell.xib
- | | | | | | L 📜 HomeDepartmentCollectionViewCell.swift
- | | | | |- 📁 HomeProductCollectionViewCell
- | | | | | | L 📜 HomeProductCollectionViewCell.xib
- | | | | | | L 📜 HomeProductCollectionViewCell.swift
- |- 📜 AppDelegate.swift
- |- 📜 SceneDelegate.swift
- |- 📜 Info.plist
- |-
+# NeversitupTest - Project Structure
+* 📦 NeversitupTest
+  * 📁 Models 
+    * 📜 Department.swift 
+    * 📜 Product.swift
+  * 📁 Service
+    * 📜 NeversitupTestAPI.swift
+    * 📜 NeversitupTestService.swift
+  * 📁 ViewModels
+     * 📜 DetailViewModel.swift
+     * 📜 HomeViewModel.swift
+  * 📁 Views
+     * 📁 Common
+       * 📜 ExtensionUI.swift
+     * 📁 Detail
+       * 📜 Detail.storyboard
+       * 📜 DetailViewController.swift
+     * 📁 Home
+       * 📁 Base.lproj
+         * 📜 Home.storyboard
+       * 📜 HomeViewController.swift
+       * 📁 Views
+         * 📁 HomeDepartmentCollectionViewCell
+            * 📜 HomeDepartmentCollectionViewCell.xib
+            * 📜 HomeDepartmentCollectionViewCell.swift
+         * 📁 HomeProductCollectionViewCell
+            * 📜 HomeProductCollectionViewCell.xib
+            * 📜 HomeProductCollectionViewCell.swift
+  * 📜 AppDelegate.swift
+  * 📜 SceneDelegate.swift
+  * 📜 Info.plist
 
