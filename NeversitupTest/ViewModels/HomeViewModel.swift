@@ -87,6 +87,8 @@ class HomeViewModel {
                 self.productList = products
                 completion()
             case .failure(let error) :
+                self.productList = [Product]()
+                completion()
                 print(error.localizedDescription)
             }
         }

@@ -22,13 +22,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYk-Bi-UFZ">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJz-eo-2C9">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJz-eo-2C9">
                                                 <rect key="frame" x="8" y="8" width="377" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="ZVc-Vu-yXd"/>
                                                 </constraints>
-                                                <string key="text">Department carousel
-</string>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -64,7 +62,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcm-B8-C8i">
                                         <rect key="frame" x="0.0" y="200" width="393" height="559"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product listing: 2" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flh-Wh-Awk">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flh-Wh-Awk">
                                                 <rect key="frame" x="8" y="8" width="377" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="XX5-WS-tzy"/>
@@ -73,7 +71,7 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zBO-lo-KYO">
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zBO-lo-KYO">
                                                 <rect key="frame" x="0.0" y="38" width="393" height="521"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-neversitup" translatesAutoresizingMaskIntoConstraints="NO" id="asR-ZH-TXm">
@@ -98,7 +96,7 @@
                                                     <constraint firstItem="ckB-Iu-GnE" firstAttribute="centerY" secondItem="zBO-lo-KYO" secondAttribute="centerY" id="scz-pF-mTV"/>
                                                 </constraints>
                                             </view>
-                                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UQv-ij-Kt0">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UQv-ij-Kt0">
                                                 <rect key="frame" x="8" y="46" width="377" height="505"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" id="YI0-1w-4uD">
@@ -152,9 +150,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="NotFoundView" destination="zBO-lo-KYO" id="jA3-Ex-2IY"/>
-                        <outlet property="depastmentCollectionView" destination="oPG-1I-ut9" id="VPO-a2-bnF"/>
-                        <outlet property="depastmentLabel" destination="ZJz-eo-2C9" id="Gxo-B9-Mut"/>
+                        <outlet property="departmentCollectionView" destination="oPG-1I-ut9" id="VPO-a2-bnF"/>
+                        <outlet property="departmentLabel" destination="ZJz-eo-2C9" id="Gxo-B9-Mut"/>
+                        <outlet property="notFoundView" destination="zBO-lo-KYO" id="jA3-Ex-2IY"/>
                         <outlet property="productCollectionView" destination="UQv-ij-Kt0" id="Cyb-0O-oG3"/>
                         <outlet property="productLabel" destination="flh-Wh-Awk" id="hV2-mf-qn3"/>
                     </connections>

@@ -9,18 +9,19 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet var depastmentLabel: UILabel!
-    @IBOutlet var depastmentCollectionView: UICollectionView!
+    @IBOutlet var departmentLabel: UILabel!
+    @IBOutlet var departmentCollectionView: UICollectionView!
     
     @IBOutlet var productLabel: UILabel!
     @IBOutlet var productCollectionView: UICollectionView!
-    @IBOutlet var NotFoundView: UIView!
+    @IBOutlet var notFoundView: UIView!
 
     let homeViewModel = HomeViewModel()
     private var spacing: CGFloat = 4
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupView()
         self.registerCell()
         self.loadData()
     }
@@ -29,10 +30,14 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
+    private func setupView() {
+        self.departmentLabel.text = "Department carousel"
+    }
+    
     private func registerCell() {
-        self.depastmentCollectionView.dataSource = self
-        self.depastmentCollectionView.delegate = self
-        self.depastmentCollectionView.register(UINib(nibName: "HomeDepartmentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeDepartmentCollectionViewCell")
+        self.departmentCollectionView.dataSource = self
+        self.departmentCollectionView.delegate = self
+        self.departmentCollectionView.register(UINib(nibName: "HomeDepartmentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeDepartmentCollectionViewCell")
         
         self.productCollectionView.dataSource = self
         self.productCollectionView.delegate = self
@@ -46,19 +51,19 @@ class HomeViewController: UIViewController {
                 return
             }
             self.loadProductList(departmentName: firstData.name, departmentId: firstData.id)
-            self.depastmentCollectionView.reloadData()
+            self.departmentCollectionView.reloadData()
         }
     }
     
     private func loadProductList(departmentName: String, departmentId: String) {
         self.productLabel.text = "Product listing: \(departmentName)"
         self.homeViewModel.fetchProductListWidgets(departmentId: departmentId) {
-            if self.homeViewModel.numberOfDepartments == 0 {
+            if self.homeViewModel.numberOfProducts == 0 {
                 // TODO: - หน้าเปล่า
-                self.NotFoundView.isHidden = false
+                self.notFoundView.isHidden = false
                 self.productCollectionView.isHidden = true
             } else {
-                self.NotFoundView.isHidden = true
+                self.notFoundView.isHidden = true
                 self.productCollectionView.isHidden = false
                 self.productCollectionView.reloadData()
             }
@@ -69,7 +74,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == depastmentCollectionView {
+        if collectionView == departmentCollectionView {
             return homeViewModel.numberOfDepartments
         } else if collectionView == productCollectionView {
             return homeViewModel.numberOfProducts
@@ -79,7 +84,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == depastmentCollectionView {
+        if collectionView == departmentCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeDepartmentCollectionViewCell", for: indexPath) as! HomeDepartmentCollectionViewCell
             let domain = homeViewModel.department(at: indexPath.row)
             cell.setupCell(name: domain.name, imageUrl: "\(domain.imageUrl)/\(domain.id)")
@@ -95,7 +100,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == depastmentCollectionView {
+        if collectionView == departmentCollectionView {
             let domain = homeViewModel.department(at: indexPath.row)
             self.loadProductList(departmentName: domain.name, departmentId: domain.id)
         } else if collectionView == productCollectionView {
@@ -125,14 +130,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: width, height: height)
                     
         } 
-//        else if collectionView == depastmentCollectionView {
-//            let departmentCVC = HomeDepartmentCollectionViewCell.self
-//            let width = departmentCVC.collectionItemWidth(collectionViewWidth: collectionView.bounds.width, numberOfColumn: departmentCVC.numberOfColumn)
-//            let height = departmentCVC.collectionItemHeigth(collectionItemWidth: width)
-//
-//            return CGSize(width: width, height: height)
-//                    
-//        } 
+
         else {
             return CGSize(width: collectionView.bounds.height, height: collectionView.bounds.height)
         }
